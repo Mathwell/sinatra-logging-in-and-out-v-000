@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
     puts params
     @user=User.find_by(username: params["username"], password: params["password"])
     session[:id]=@user.id
-    if @user
+    if is_logged_in?(session)
       erb:account
     else
       erb:account
