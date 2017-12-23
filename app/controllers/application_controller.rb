@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
+    puts params
     @user=User.find(username: params[:username], passwrod: params[:password])
     puts @user
     if @user
