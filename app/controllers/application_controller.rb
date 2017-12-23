@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     puts params
-    @user=User.find(username: params["username"], passwrod: params["password"])
+    @user=User.find_by(username: params["username"], passwrod: params["password"])
     puts @user
     if @user
       erb:account
