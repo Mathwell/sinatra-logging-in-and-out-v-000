@@ -12,6 +12,10 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     puts params
+    User.all.each do |user|
+      puts user.username
+      puts user.password
+    end
     puts User.all[0].password
     @user=User.find_by(username: params["username"], password: params["password"])
     session[:id]=@user.id
