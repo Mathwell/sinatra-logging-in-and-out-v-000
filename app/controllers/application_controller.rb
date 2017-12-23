@@ -12,6 +12,7 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     puts params
+    puts User.all
     @user=User.find_by(username: params["username"], password: params["password"])
     session[:id]=@user.id
     if is_logged_in?(session)
