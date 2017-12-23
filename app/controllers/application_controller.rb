@@ -13,6 +13,7 @@ class ApplicationController < Sinatra::Base
   post '/login' do
     puts params
     User.all.each do |user|
+      puts user
       puts user.username
       puts user.password
     end
@@ -22,7 +23,7 @@ class ApplicationController < Sinatra::Base
     if is_logged_in?(session)
       erb:account
     else
-      erb:account
+      erb:error
     end
   end
 
