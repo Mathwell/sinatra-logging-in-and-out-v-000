@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
+    @user=User.find(username: params[:username], passwrod: params[:password])
     erb:account
   end
 
